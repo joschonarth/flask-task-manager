@@ -9,12 +9,14 @@ Esta é uma API para gerenciamento de tarefas (To-do List) que permite criar, li
 - 🔍 **Listar tarefa específica** pelo ID.
 - ✏️ **Atualizar** tarefas existentes (título, descrição, status de conclusão).
 - ❌ **Deletar** tarefas específicas.
-- 📑 Documentação interativa com **Swagger**.
+- ✅ **Testes** automatizados utilizando **pytest**.
+- 📑 **Documentação** interativa com **Swagger**.
 
 ## 🛠️ Tecnologias Utilizadas
 
 - **🐍 Python**: Linguagem de programação.
 - **🌐 Flask**: Framework web utilizado para construir a API.
+- **🧪 Pytest**: Framework utilizado para escrever e executar testes automatizados.
 - **📖 Swagger**: Utilizado para documentação da API.
 
 ## 🚀 Como Rodar o Projeto
@@ -40,6 +42,14 @@ Esta é uma API para gerenciamento de tarefas (To-do List) que permite criar, li
     ```
 
 5. A API estará disponível em: `http://127.0.0.1:5000`
+
+## 🧪 Como Rodar os Testes
+
+Para rodar todos os testes, no modo detalhado (`-v`), execute o seguinte comando:
+
+```bash
+pytest tests.py -v
+```
 
 ## 🔗 Servidor de Desenvolvimento
 
