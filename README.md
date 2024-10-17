@@ -1,6 +1,6 @@
-# 📝 API de Gerenciamento de Tarefas (To-Do List)
+# 📝 API de Gerenciamento de Tarefas
 
-Esta é uma API para gerenciamento de tarefas (To-do List) que permite criar, listar, atualizar e deletar tarefas. A API foi desenvolvida utilizando **Python** e o framework **Flask**, proporcionando uma estrutura leve e eficiente para o gerenciamento de tarefas.
+Esta é uma API para gerenciamento de tarefas que permite criar, listar, atualizar e deletar tarefas. A API foi desenvolvida utilizando **Python** e o framework **Flask**, proporcionando uma estrutura leve e eficiente para o gerenciamento de tarefas.
 
 ## ⚙️ Funcionalidades
 
@@ -58,13 +58,13 @@ pytest tests.py -v
 ## 📋 Endpoints
 
 ### 1. 📋 Obter todas as tarefas
-- **Método**: `GET /tasks`
+- **Método**: **`GET`** `/tasks`
 - **Descrição**: Retorna a lista de todas as tarefas.
 - **Resposta**:
     - `200 OK`: Retorna a lista de tarefas com os campos `id`, `title`, `description`, `completed` e o total de tarefas (`total_tasks`).
 
 ### 2. 🔍 Obter tarefa específica
-- **Método**: `GET /tasks/{taskId}`
+- **Método**: **`GET`** `/tasks/{taskId}`
 - **Descrição**: Retorna uma tarefa específica com base no ID fornecido.
 - **Parâmetros**:
     - `taskId`: ID da tarefa a ser retornada (passado na URL).
@@ -72,7 +72,7 @@ pytest tests.py -v
     - `200 OK`: Retorna os dados da tarefa encontrada.
 
 ### 3. 📝 Criar nova tarefa
-- **Método**: `POST /tasks`
+- **Método**: **`POST`** `/tasks`
 - **Descrição**: Cria uma nova tarefa.
 - **Corpo da Requisição**:
     ```json
@@ -85,7 +85,7 @@ pytest tests.py -v
     - `200 OK`: Retorna os dados da nova tarefa criada.
 
 ### 4. ✏️ Atualizar tarefa existente
-- **Método**: `PUT /tasks/{taskId}`
+- **Método**: **`PUT`** `/tasks/{taskId}`
 - **Descrição**: Atualiza os dados de uma tarefa existente.
 - **Parâmetros**:
     - `taskId`: ID da tarefa a ser atualizada (passado na URL).
@@ -101,7 +101,7 @@ pytest tests.py -v
     - `200 OK`: Tarefa atualizada com sucesso.
 
 ### 5. ❌ Deletar tarefa
-- **Método**: `DELETE /tasks/{taskId}`
+- **Método**: **`DELETE`** `/tasks/{taskId}`
 - **Descrição**: Deleta uma tarefa existente.
 - **Parâmetros**:
     - `taskId`: ID da tarefa a ser deletada (passado na URL).
