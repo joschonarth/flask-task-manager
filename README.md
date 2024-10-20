@@ -16,6 +16,7 @@ Esta é uma API para gerenciamento de tarefas que permite criar, listar, atualiz
 
 - **🐍 Python**: Linguagem de programação.
 - **🌐 Flask**: Framework web utilizado para construir a API.
+- **🗄️ SQLite**: Banco de dados utilizado para armazenar as tarefas.
 - **🧪 Pytest**: Framework utilizado para escrever e executar testes automatizados.
 - **📖 Swagger**: Utilizado para documentação da API.
 
@@ -100,7 +101,16 @@ pytest tests.py -v
 - **Resposta**:
     - `200 OK`: Tarefa atualizada com sucesso.
 
-### 5. ❌ Deletar tarefa
+### 5. ✅ Marcar ou desmarcar tarefa
+- **Método**: **`PATCH`** `/tasks/{taskId}/complete`
+- **Descrição**: Marca ou desmarca uma tarefa como concluída.
+- **Parâmetros**:
+    - `taskId`: ID da tarefa a ser marcada ou desmarcada (passado na URL).
+- **Resposta**:
+    - `200 OK`: Retorna uma mensagem confirmando a alteração do status da tarefa.
+    - `404 Not Found`: Mensagem de erro caso a tarefa não seja encontrada.
+
+### 6. ❌ Deletar tarefa
 - **Método**: **`DELETE`** `/tasks/{taskId}`
 - **Descrição**: Deleta uma tarefa existente.
 - **Parâmetros**:

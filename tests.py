@@ -10,7 +10,7 @@ def test_create_task():
         "desciption": "Descrição da nova tarefa"
     }
     response = requests.post(f"{BASE_URL}/tasks", json=new_task_data)
-    assert response.status_code == 200
+    assert response.status_code == 201
     response_json = response.json()
     assert "message" in response_json
     assert "id" in response_json
@@ -51,11 +51,25 @@ def test_update_task():
         assert response_json["description"] == payload["description"]
         assert response_json["completed"] == payload["completed"]
 
-def test_delete_task():
+def test_complete_task():
     if tasks:
         task_id = tasks[0]
-        response = requests.delete(f"{BASE_URL}/tasks/{task_id}")
-        response.status_code == 200
+        response = requests.patch(f"{BASE_URL}/tasks/{task_id}/complete")
+        assert response.status_code == 200
+        response_json = response.json()
+        assert "message" in response_json
 
         response = requests.get(f"{BASE_URL}/tasks/{task_id}")
-        assert response.status_code == 404
+        assert response.status_code == 200
+        response_json = response.json()
+        assert response_json["completed"] is True
+
+        response = requests.patch(f"{BASE_URL}/tasks/{task_id}/complete")
+        assert response.status_code == 200
+        response_json = response.json()
+        assert "message" in response_json
+
+        response = requests.get(f"{BASE_URL}/tasks/{task_id}")
+        assert response.status_code == 200
+        response_json = response.json()
+        assert response_json["completed"] is False
