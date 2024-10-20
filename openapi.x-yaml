@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: API de Gerenciamento de Tarefas
-  description: Documentação da API para o gerenciamento de tarefas.
+  description: Esta API permite o gerenciamento de tarefas, incluindo a criação, leitura, atualização e exclusão de tarefas.
   version: 1.0.0
 servers:
   - url: http://127.0.0.1:5000
@@ -30,14 +30,19 @@ paths:
                       properties:
                         id:
                           type: integer
+                          description: ID único da tarefa
                         title:
                           type: string
+                          description: Título da tarefa
                         description:
                           type: string
+                          description: Descrição detalhada da tarefa
                         completed:
                           type: boolean
+                          description: Status de conclusão da tarefa
                   total_tasks:
                     type: integer
+                    description: Número total de tarefas disponíveis
     post:
       summary: Criar nova tarefa
       tags:
@@ -51,18 +56,42 @@ paths:
               properties:
                 title:
                   type: string
+                  description: Título da nova tarefa
                 description:
                   type: string
+                  description: Descrição da nova tarefa
               required:
                 - title
       responses:
-        '200':
+        '201':
           description: Nova tarefa criada com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: ID da nova tarefa criada
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  completed:
+                    type: boolean
+                    description: Status inicial da tarefa (false)
   '/tasks/{taskId}':
     put:
       summary: Atualizar tarefa existente
       tags:
         - tarefas
+      parameters:
+        - name: taskId
+          in: path
+          description: ID da tarefa a ser atualizada
+          required: true
+          schema:
+            type: integer
       requestBody:
         required: true
         content:
@@ -73,22 +102,32 @@ paths:
               properties:
                 title:
                   type: string
+                  description: Novo título da tarefa
                 description:
                   type: string
+                  description: Nova descrição da tarefa
                 completed:
                   type: boolean
+                  description: Novo status de conclusão da tarefa
               required:
                 - title
-      parameters:
-        - name: taskId
-          in: path
-          description: ID da tarefa a ser atualizada
-          required: true
-          schema:
-            type: integer
       responses:
         '200':
           description: Tarefa atualizada com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: ID da tarefa atualizada
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  completed:
+                    type: boolean
     delete:
       summary: Deletar tarefa existente
       tags:
@@ -101,5 +140,5 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        '204':
           description: Tarefa deletada com sucesso
