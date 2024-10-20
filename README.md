@@ -8,8 +8,9 @@ Esta é uma API para gerenciamento de tarefas que permite criar, listar, atualiz
 - 📋 **Listar** todas as tarefas registradas.
 - 🔍 **Listar tarefa específica** pelo ID.
 - ✏️ **Atualizar** tarefas existentes (título, descrição, status de conclusão).
+- ✅ **Marcar ou desmarcar** tarefas como concluídas.
 - ❌ **Deletar** tarefas específicas.
-- ✅ **Testes** automatizados utilizando **pytest**.
+- 🧪 **Testes** automatizados utilizando **pytest**.
 - 📑 **Documentação** interativa com **Swagger**.
 
 ## 🛠️ Tecnologias Utilizadas
