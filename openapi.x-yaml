@@ -1,15 +1,20 @@
 openapi: 3.0.0
 info:
   title: API de Gerenciamento de Tarefas
-  description: Documentação da API para o gerenciamento de tarefas (To-Do List)
+  description: Documentação da API para o gerenciamento de tarefas.
   version: 1.0.0
 servers:
   - url: http://127.0.0.1:5000
     description: Servidor de Desenvolvimento
+tags:
+  - name: tarefas
+    description: Operações relacionadas ao gerenciamento de tarefas
 paths:
   /tasks:
     get:
       summary: Obter todas as tarefas
+      tags:
+        - tarefas
       responses:
         '200':
           description: Lista de tarefas obtida com sucesso
@@ -35,6 +40,8 @@ paths:
                     type: integer
     post:
       summary: Criar nova tarefa
+      tags:
+        - tarefas
       requestBody:
         required: true
         content:
@@ -54,6 +61,8 @@ paths:
   '/tasks/{taskId}':
     put:
       summary: Atualizar tarefa existente
+      tags:
+        - tarefas
       requestBody:
         required: true
         content:
@@ -77,12 +86,13 @@ paths:
           required: true
           schema:
             type: integer
-
       responses:
         '200':
           description: Tarefa atualizada com sucesso
     delete:
       summary: Deletar tarefa existente
+      tags:
+        - tarefas
       parameters:
         - name: taskId
           in: path
