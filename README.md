@@ -18,6 +18,7 @@ Esta é uma API para gerenciamento de tarefas que permite criar, listar, atualiz
 - **🐍 Python**: Linguagem de programação.
 - **🌐 Flask**: Framework web utilizado para construir a API.
 - **🗄️ SQLite**: Banco de dados utilizado para armazenar as tarefas.
+- **🛠️ SQLAlchemy**: ORM utilizado para interagir com o banco de dados de maneira mais simples.
 - **🧪 Pytest**: Framework utilizado para escrever e executar testes automatizados.
 - **📖 Swagger**: Utilizado para documentação da API.
 
